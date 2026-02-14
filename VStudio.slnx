@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/VStudio.CLI/VStudio.CLI.csproj" />
+    <Project Path="src/VStudio.Core/VStudio.Core.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/VStudio.CLI.UnitTests/VStudio.CLI.UnitTests.csproj" />
+    <Project Path="tests/VStudio.Core.UnitTests/VStudio.Core.UnitTests.csproj" />
+  </Folder>
+</Solution>
