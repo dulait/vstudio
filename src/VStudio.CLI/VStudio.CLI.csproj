@@ -1,10 +1,26 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+
+    <!-- Global tool packaging -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>vstudio</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+
+    <!-- NuGet metadata -->
+    <PackageId>vstudio</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>dulait</Authors>
+    <Description>A .NET global tool that opens Visual Studio solution files from the command line.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>visual-studio;cli;developer-tools;dotnet-tool</PackageTags>
+    <PackageProjectUrl>https://github.com/dulait/vstudio</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dulait/vstudio</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +29,10 @@
 
   <ItemGroup>
     <PackageReference Include="Spectre.Console" Version="0.49.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
