@@ -13,7 +13,7 @@
 
     <!-- NuGet metadata -->
     <PackageId>vstudio</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>dulait</Authors>
     <Description>A .NET global tool that opens Visual Studio solution files from the command line.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
