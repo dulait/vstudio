@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: windows-latest
+    if: "!startsWith(github.event.head_commit.message, 'chore(release):')"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Install Versionize
+        run: dotnet tool install --global Versionize
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run Versionize
+        id: versionize
+        run: versionize --skip-dirty
+        continue-on-error: true
+
+      - name: Push changes
+        if: steps.versionize.outcome == 'success'
+        run: git push --follow-tags
